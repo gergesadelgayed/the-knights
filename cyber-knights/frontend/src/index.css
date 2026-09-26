@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-void-950 text-slate-200 font-body antialiased;
+  background-image: radial-gradient(ellipse at 50% -10%, rgba(30, 144, 255, 0.12), transparent 55%),
+    radial-gradient(ellipse at 90% 110%, rgba(255, 23, 68, 0.08), transparent 50%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(0, 212, 255, 0.3);
+  color: #fff;
+}
+
+/* Brand-styled keyboard focus ring, used everywhere instead of the
+   browser default blue outline. Component-level focus-visible classes
+   (e.g. NeonButton's crimson variant) take precedence over this. */
+:focus-visible {
+  outline: 2px solid rgba(0, 212, 255, 0.85);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
+/* Faint circuit-line texture, layered behind all page content.
+   Purely decorative, very low opacity, no animation. */
+.circuit-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(ellipse at 50% 30%, black 0%, transparent 75%);
+}
+
+/* Glitch / chromatic-aberration heading effect */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  font-family: "Rajdhani", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0.75;
+  mix-blend-mode: screen;
+}
+
+.glitch-text::before {
+  color: #00d4ff;
+  transform: translate(-2px, 0);
+  animation: glitchShiftA 5s infinite steps(1);
+}
+
+.glitch-text::after {
+  color: #ff1744;
+  transform: translate(2px, 0);
+  animation: glitchShiftB 5s infinite steps(1);
+}
+
+@keyframes glitchShiftA {
+  0%, 92%, 100% { transform: translate(-2px, 0); opacity: 0.75; }
+  93% { transform: translate(-6px, 1px); opacity: 0.9; }
+  95% { transform: translate(-1px, -1px); opacity: 0.5; }
+}
+
+@keyframes glitchShiftB {
+  0%, 92%, 100% { transform: translate(2px, 0); opacity: 0.75; }
+  93% { transform: translate(6px, -1px); opacity: 0.9; }
+  95% { transform: translate(1px, 1px); opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch-text::before,
+  .glitch-text::after {
+    animation: none !important;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* HUD corner brackets, applied via HudCard component */
+.hud-frame {
+  position: relative;
+}
+
+.hud-frame::before,
+.hud-frame::after,
+.hud-frame .hud-corner-tr,
+.hud-frame .hud-corner-bl {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: rgba(0, 212, 255, 0.65);
+  pointer-events: none;
+}
+
+.hud-frame::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.hud-frame::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+.hud-frame .hud-corner-tr {
+  top: 0;
+  right: 0;
+  border-top: 2px solid rgba(0, 212, 255, 0.65);
+  border-right: 2px solid rgba(0, 212, 255, 0.65);
+}
+
+.hud-frame .hud-corner-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid rgba(0, 212, 255, 0.65);
+  border-left: 2px solid rgba(0, 212, 255, 0.65);
+}
