@@ -84,6 +84,12 @@ export default function Home() {
             {config.brand.description}
           </p>
 
+          {config.hero?.kicker && (
+            <p className="mt-6 font-mono text-xs tracking-[0.25em] text-neon-blue/70">
+              {config.hero.kicker}
+            </p>
+          )}
+
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <NeonButton href={config.joinUrl}>Become a Knight</NeonButton>
             <NeonButton to="/teams" variant="outline">

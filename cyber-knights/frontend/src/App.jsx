@@ -7,8 +7,10 @@ import About from "./pages/About.jsx";
 import Teams from "./pages/Teams.jsx";
 import Partnership from "./pages/Partnership.jsx";
 import UpcomingEvents from "./pages/UpcomingEvents.jsx";
+import HowWeWork from "./pages/HowWeWork.jsx";
 import Socials from "./pages/Socials.jsx";
 import Join from "./pages/Join.jsx";
+import ProgramDetail from "./pages/ProgramDetail.jsx";
 
 export default function App() {
   const location = useLocation();
@@ -29,8 +31,10 @@ export default function App() {
           <Route path="/teams" element={<Teams />} />
           <Route path="/partnership" element={<Partnership />} />
           <Route path="/upcoming-events" element={<UpcomingEvents />} />
+          <Route path="/how-we-work" element={<HowWeWork />} />
           <Route path="/socials" element={<Socials />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/programs/:programId" element={<ProgramDetail />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>

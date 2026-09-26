@@ -5,7 +5,7 @@ import HudCard from "../components/HudCard.jsx";
 import NeonButton from "../components/NeonButton.jsx";
 
 export default function UpcomingEvents() {
-  const events = config.upcomingEvents ?? [];
+  const events = config.showUpcomingEvents ? config.upcomingEvents ?? [] : [];
 
   return (
     <div className="mx-auto max-w-5xl px-6 pb-24 pt-32">
@@ -50,7 +50,11 @@ export default function UpcomingEvents() {
                     </span>
                   </div>
 
-                  <NeonButton href={ctaHref} variant="outline" className="mt-auto self-start !px-6 !py-2 !text-xs">
+                  <NeonButton
+                    href={ctaHref}
+                    variant="outline"
+                    className="mt-auto self-start !px-6 !py-2 !text-xs"
+                  >
                     {event.ctaLabel || "Learn more"}
                   </NeonButton>
                 </HudCard>
