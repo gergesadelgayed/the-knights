@@ -57,6 +57,7 @@ const config = {
     { label: "About", to: "/about" },
     { label: "Teams", to: "/teams" },
     { label: "Partnership", to: "/partnership" },
+    { label: "Upcoming Events", to: "/upcoming-events" },
     { label: "Socials", to: "/socials" },
     { label: "Join Us", to: "/join" },
   ],
@@ -76,6 +77,14 @@ const config = {
     },
   ],
 
+  // Home page, right after the Hero: what the club actually does.
+  whatWeDo: [
+    { title: "Learn", description: "Workshops, study groups & cybersecurity fundamentals." },
+    { title: "Practice", description: "Hands-on labs, CTF challenges & technical exercises." },
+    { title: "Compete", description: "University CTFs, team competitions & security challenges." },
+    { title: "Connect", description: "Mentorship, industry exposure & career opportunities." },
+  ],
+
   // About page, below the mission cards.
   whyUs: [
     {
@@ -90,73 +99,6 @@ const config = {
     },
   ],
 
-  // Home page "WHAT WE DO" section — replaces the old 4-card Learn/Practice/
-  // Compete/Connect grid with the full set of program areas. `color` is a
-  // small accent hint only (a dot on the card), not a full theme.
-  programs: [
-    {
-      id: "workshops",
-      label: "Cybersecurity Workshops",
-      color: "blue",
-      description: "Hands-on sessions covering core security concepts.",
-    },
-    {
-      id: "ctf",
-      label: "CTF & Competitions",
-      color: "red",
-      description: "Team and individual capture-the-flag competitions.",
-    },
-    {
-      id: "blue-team",
-      label: "Blue Team / SOC",
-      color: "green",
-      description: "Defensive security, monitoring and incident response.",
-    },
-    {
-      id: "forensics",
-      label: "Digital Forensics / DFIR",
-      color: "purple",
-      description: "Investigating and analyzing digital evidence.",
-    },
-    {
-      id: "web-security",
-      label: "Web Security",
-      color: "blue",
-      description: "Finding and fixing vulnerabilities in web applications.",
-    },
-    {
-      id: "reverse-engineering",
-      label: "Reverse Engineering",
-      color: "orange",
-      description: "Analyzing binaries and understanding how software works.",
-    },
-    {
-      id: "cloud-security",
-      label: "Cloud Security",
-      color: "cyan",
-      description: "Securing cloud infrastructure and services.",
-    },
-    {
-      id: "career-development",
-      label: "Career Development",
-      color: "indigo",
-      description: "Resume help, mentorship and industry connections.",
-    },
-  ],
-
-  // Home page "UPCOMING EVENT" section. No date/location/registration link
-  // is invented — this stays TBD until real details are confirmed. If
-  // ctaLink is null, the CTA falls back to the main joinUrl above.
-  showUpcomingEvent: true,
-  upcomingEvent: {
-    name: "The Knights CTF",
-    description: "Our own CTF competition, open to students — details coming soon.",
-    date: "TBD",
-    location: "TBD",
-    ctaLabel: "Get notified",
-    ctaLink: null,
-  },
-
   // Never show a bare "0" for a stat — use a short qualitative label
   // ("TBD", "Growing", etc.) until a real number is confirmed.
   stats: [
@@ -166,49 +108,14 @@ const config = {
     { label: "Partners", value: "1" },
   ],
 
-  // Teams page: focus-area teams Cyber Knights is building, shown alongside
-  // the active competitive team below. `status: "forming"` gets a "Team
-  // forming" badge; flip to "active" once a focus-area team is actually up
-  // and running. Easy to extend with more entries as new areas start.
+  // Teams page: general focus areas Cyber Knights covers, shown as
+  // descriptive tags alongside the active competitive team below.
+  // Easy to extend with more entries as new areas become active.
   focusAreas: [
-    { label: "Web Security", status: "forming" },
-    { label: "Digital Forensics", status: "forming" },
-    { label: "Reverse Engineering", status: "forming" },
-    { label: "Blue Team / SOC", status: "forming" },
-  ],
-
-  // Teams page: real, selected results for EL FLA73N, Cyber Knights' active
-  // CTF team. This is the single source of truth for achievements — it also
-  // powers the Home page teaser. Do not duplicate this data elsewhere.
-  achievements: [
-    {
-      id: "ac3",
-      competition: "AC3",
-      result: "Top 14",
-      scope: "National-level competition",
-      description: "EL FLA73N competed in AC3 and achieved a Top 14 placement.",
-    },
-    {
-      id: "cyber-talents",
-      competition: "Cyber Talents",
-      result: "Competed",
-      scope: "Cybersecurity competition",
-      description: "EL FLA73N participated in Cyber Talents.",
-    },
-    {
-      id: "luxor-ctf",
-      competition: "Luxor CTF",
-      result: "2nd place",
-      scope: "Local — Luxor",
-      description: "EL FLA73N achieved 2nd place in a Luxor-level CTF competition.",
-    },
-    {
-      id: "luxai",
-      competition: "LUXAI",
-      result: "30th place",
-      scope: "CTF competition",
-      description: "EL FLA73N achieved 30th place in LUXAI.",
-    },
+    "Web Security",
+    "Digital Forensics",
+    "Reverse Engineering",
+    "Blue Team / SOC",
   ],
 
   teams: [
@@ -216,7 +123,10 @@ const config = {
       id: "el-fla73n",
       name: "EL FLA73N",
       tagline: "Capture The Flag division of Cyber Knights",
-      status: "active",
+      achievements: [
+        { event: "Regional CTF Qualifier", result: "Top 10 Finish" },
+        { event: "Campus Security Jam", result: "1st Place — Web Track" },
+      ],
       members: [
         { name: "Gerges Adel", role: "Forensics, Reverse Engineering" },
         { name: "Felopater Yohana", role: "Crypto" },
@@ -254,6 +164,33 @@ const config = {
     whoCanJoin:
       "LNU students interested in cybersecurity. Beginners are welcome. No previous CTF experience required.",
   },
+
+  // Upcoming Events page: add a new entry here to add a new event card —
+  // no component changes needed. Use "TBD" for date/location when not
+  // yet confirmed; it will be shown plainly, not hidden. If ctaLink is
+  // null, the card's button falls back to the site's joinUrl above.
+  upcomingEvents: [
+    {
+      id: "freshman-session",
+      name: "Freshman Orientation Session",
+      description:
+        "An introductory session for first-year students to learn about Cyber Knights and how to get involved.",
+      date: "TBD",
+      location: "TBD",
+      ctaLabel: "Get notified",
+      ctaLink: null,
+    },
+    {
+      id: "the-knights-ctf",
+      name: "The Knights CTF",
+      description: "Our own CTF competition, open to students — details coming soon.",
+      date: "TBD",
+      location: "TBD",
+      ctaLabel: "Get notified",
+      ctaLink: null,
+    },
+  ],
+  showUpcomingEvents: true,
 };
 
 export default config;
