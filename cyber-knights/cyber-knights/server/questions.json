@@ -1,0 +1,18 @@
+[
+{"id":"e1","level":"easy","q":"Which OSI layer does a router operate at?","options":["Physical","Data Link","Network","Transport"],"answer":2},
+{"id":"e2","level":"easy","q":"What is the default port for HTTPS?","options":["80","443","22","25"],"answer":1},
+{"id":"e3","level":"easy","q":"Which protocol provides secure remote login?","options":["Telnet","FTP","HTTP","SSH"],"answer":3},
+{"id":"e4","level":"easy","q":"What does a firewall primarily do?","options":["Encrypts the hard disk","Filters traffic based on rules","Assigns IP addresses","Backs up files"],"answer":1},
+{"id":"e5","level":"easy","q":"DNS is used to translate:","options":["IP addresses to MAC addresses","Passwords to hashes","Domain names to IP addresses","Ports to services"],"answer":2},
+{"id":"e6","level":"easy","q":"Which of these is a private IPv4 address?","options":["8.8.8.8","172.16.5.4","200.1.1.1","11.0.0.1"],"answer":1},
+{"id":"e7","level":"easy","q":"A VPN mainly provides:","options":["Faster internet","Free Wi-Fi","An encrypted tunnel over an untrusted network","Antivirus protection"],"answer":2},
+{"id":"e8","level":"easy","q":"Which protocol is used to send email?","options":["IMAP","POP3","SNMP","SMTP"],"answer":3},
+{"id":"m1","level":"medium","q":"An attacker sends many SYN packets and never completes the handshake. This is a:","options":["Smurf attack","SYN flood","DNS poisoning","Replay attack"],"answer":1},
+{"id":"m2","level":"medium","q":"ARP poisoning on a LAN lets an attacker:","options":["Crack Wi-Fi passwords offline","Bypass TLS certificates","Impersonate the gateway and intercept traffic","Overflow a buffer"],"answer":2},
+{"id":"m3","level":"medium","q":"Which nmap flag performs a SYN (half-open) scan?","options":["-sT","-sS","-sU","-sn"],"answer":1},
+{"id":"m4","level":"medium","q":"WPA2-Enterprise authenticates users using:","options":["802.1X with a RADIUS server","A single shared passphrase","MAC filtering","WEP IVs"],"answer":0},
+{"id":"a1","level":"advanced","q":"Double tagging is an attack technique used for:","options":["VLAN hopping","MAC flooding","DHCP starvation","STP root takeover"],"answer":0},
+{"id":"a2","level":"advanced","q":"In IPsec, which protocol provides payload confidentiality?","options":["AH","GRE","ESP","ICMP"],"answer":2},
+{"id":"a3","level":"advanced","q":"Which switch feature mitigates rogue DHCP servers?","options":["BPDU guard","DHCP snooping","Storm control","Port mirroring"],"answer":1},
+{"id":"a4","level":"advanced","q":"Which was removed in TLS 1.3?","options":["Forward secrecy","AEAD ciphers","Static RSA key exchange","Server Name Indication"],"answer":2}
+]
